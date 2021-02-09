@@ -5,9 +5,9 @@
 ;; Conda
 (after! conda (setq conda-anaconda-home "/home/rstrudel/miniconda3/"
                     conda-env-autoactivate-mode t))
-;;get current environment--from environment variable CONDA_DEFAULT_ENV
+;; activate user env
 (conda-env-activate "segtr")
-;;(conda-env-autoactivate-mode t)
+;; write env name in modiline
 (setq-default mode-line-format (cons mode-line-format '(:exec conda-env-current-name)))
 
 ;; Virtual environment
