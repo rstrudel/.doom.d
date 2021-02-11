@@ -7,7 +7,7 @@
                     conda-env-autoactivate-mode t))
 ;; activate user env
 (conda-env-activate "segtr")
-;; write env name in modiline
+;; write env name in modeline
 (setq-default mode-line-format (cons mode-line-format '(:exec conda-env-current-name)))
 
 ;; Virtual environment
@@ -35,6 +35,7 @@
 (use-package! python-black
   :demand t
   :after python)
+;; format file when saved
 (add-hook! 'python-mode-hook #'python-black-on-save-mode)
 ;; Feel free to throw your own personal keybindings here
 (map! :leader :desc "Blacken Buffer" "m b b" #'python-black-buffer)
