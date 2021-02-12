@@ -24,7 +24,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
+(setq doom-theme 'doom-palenight)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -70,14 +71,33 @@
 (map! :leader (:prefix ("p" . "project")
                :desc "Open treemacs" "t" #'treemacs))
 
+;; Copy/paste buffer
+(map! :leader (:prefix ("r" . "helm")
+               :desc "Show kill ring" "y" #'helm-show-kill-ring))
+
+;; Avy jump
+(map! :leader
+      (:prefix ("j" . "jump")
+        "i" 'imenu
+        "b" 'avy-pop-mark
+        "j" 'evil-avy-goto-char-timer
+        "l" 'evil-avy-goto-line
+        "u" 'spacemacs/avy-goto-url
+        "U" 'spacemacs/avy-open-url
+        "w" 'evil-avy-goto-word-or-subword-1
+        "o" 'spacemacs/avy-open-url))
+
+;; TODO fix window-p error
 ;; Balance windows
-(dolist (fn '(split-window-right split-window-below delete-window))
-  (advice-add fn :after #'balance-windows))
+;; (dolist (fn '(split-window-right split-window-below delete-window))
+;;   (advice-add fn :after #'balance-windows))
 
 
 ;; Layers tweaks
 (load! "python.el")
 (load! "git.el")
 
+;; Show error message
+(setq debug-on-error '(wrong-type-argument))
 
 ;;; config.el ends here
