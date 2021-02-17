@@ -57,7 +57,7 @@
       :desc "Open like spacemacs" "SPC" #'counsel-M-x)
 
 ;; Buffers
-(map! :leader "TAB" #'mode-line-other-buffer)
+(map! :leader "TAB" #'evil-switch-to-windows-last-buffer)
 
 ;; Auto-completion
 (after! company (setq company-idle-delay 0.1))
