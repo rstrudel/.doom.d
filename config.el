@@ -96,6 +96,7 @@
 ;; Layers tweaks
 (load! "python.el")
 (load! "git.el")
+(load! "latex.el")
 
 ;; Show error message
 (setq debug-on-error '(wrong-type-argument))
